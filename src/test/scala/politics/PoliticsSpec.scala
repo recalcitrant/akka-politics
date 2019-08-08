@@ -14,7 +14,7 @@ class PoliticsSpec extends FlatSpec with Matchers {
 
   val url = "http://localhost:8080/politics.csv"
   
-  "a csv flow" should "return 3 tuples" in {
+  "A politics flow" should "return a tuple of three futures containing valid results" in {
 
     val result = Politics.get(List(url)).run()
 

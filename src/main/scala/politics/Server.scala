@@ -28,7 +28,7 @@ object Server extends Directives with JsonSupport {
             onSuccess(Future {
               Politics.get(urls).run()
             }) {
-              case item: CSVFuture =>
+              case item: FlowResult =>
                 complete(for {
                   r1 <- item._1
                   r2 <- item._2

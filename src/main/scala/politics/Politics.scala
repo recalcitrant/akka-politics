@@ -35,14 +35,14 @@ object Politics {
   implicit val actorSystem: ActorSystem = ActorSystem("csv")
   implicit val mat: Materializer = ActorMaterializer()
 
-  def get(urls: Iterable[String]): RunnableGraph[CSVFuture] = {
+  def get(urls: Iterable[String]): RunnableGraph[FlowResult] = {
     urls match {
       case Nil => throw new RuntimeException("no urls provided")
       case _ => getGraph(urls)
     }
   }
 
-  def getGraph(urls: Iterable[String]): RunnableGraph[CSVFuture] = {
+  def getGraph(urls: Iterable[String]): RunnableGraph[FlowResult] = {
 
     RunnableGraph.fromGraph(GraphDSL.create(
 
